@@ -11,7 +11,7 @@ function deploy_challenge {
 
     echo "deploy_challenge called: ${DOMAIN}, ${TOKEN_FILENAME}, ${TOKEN_VALUE}"
 
-    mydnshost records add "_acme-challenge.${DOMAIN}" TXT "${TOKEN_VALUE}"
+    mydnshost records add -- "_acme-challenge.${DOMAIN}" TXT "${TOKEN_VALUE}"
 
     sleep 10
 
@@ -38,7 +38,7 @@ function clean_challenge {
 
     echo "clean_challenge called: ${DOMAIN}, ${TOKEN_FILENAME}, ${TOKEN_VALUE}"
 
-    mydnshost records rm "_acme-challenge.${DOMAIN}" TXT "${TOKEN_VALUE}"
+    mydnshost records rm -- "_acme-challenge.${DOMAIN}" TXT "${TOKEN_VALUE}"
 
     # This hook is called after attempting to validate each domain,
     # whether or not validation was successful. Here you can delete
