@@ -5,7 +5,9 @@ RUN apt-get update \
  && apt-get install -y \
       git \
       python3 \
-      python3-pip
+      python3-pip \
+      libffi-dev \
+      libssl-dev
 
 RUN pip3 install \
       git+https://github.com/mydnshost/mydnshost-python-api.git
